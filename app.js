@@ -16,17 +16,17 @@ routes = require('./routes/index');
 app.use("/api", routes);
 
 async function start() {
-    try {
-        await mongoose.connect(DATABASE_URL, {
-            useNewUrlParser: true,
-            useFindAndModify: false
-        })
-        app.listen(PORT, () => {
-            console.log("----- Server has been started -----");
-        });
-    } catch (e) {
-        console.log(e);
-    }
+  try {
+    await mongoose.connect(DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    app.listen(PORT, () => {
+      console.log("----- Server has been started -----");
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 start();
